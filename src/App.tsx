@@ -4,12 +4,12 @@ import { Header } from "./Components/Header"
 import { Post } from './Components/Post'
 import { Sidebar } from './Components/Sidebar'
 
-interface ContentProps {
+export interface ContentProps {
   content: string;
   type: "paragraph" | "link";
 }
 
-interface PostsProps {
+export interface PostsProps {
   author: {
     avatarUrl: string;
     name: string;
@@ -44,7 +44,7 @@ function App() {
             return (
               <Post
                 key={post.publishedAt}
-                author={post.author.name}
+                author={post.author}
                 content={post.content}
                 publishedAt={post.publishedAt}
               />

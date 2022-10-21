@@ -7,12 +7,16 @@
     },
     "content": [
       {
-        "content": "Fala galera 👋",
+        "content": "Fala galera, segue todos meus repositórios.",
         "type": "paragraph"
       },
       {
-        "content": "O Projeto ficou massa 🚀",
+        "content": "Não se esqueça de entrar nas organizações.",
         "type": "paragraph"
+      },
+      {
+        "content": "https://github.com/renan-tsx?tab=repositories",
+        "type": "link"
       },
       {
         "content": "https://www.linkedin.com/in/renan-ms/",
@@ -20,7 +24,7 @@
       }
     ],
     "id": 1,
-    "publishedAt": "2022-21-10 08:00:00"
+    "publishedAt": "2022-10-21 09:00:00"
   },
   {
     "author": {
@@ -30,19 +34,43 @@
     },
     "content": [
       {
-        "content": "Fala galera 👋",
+        "content": "Espie outros projetos feitos com React 👋",
         "type": "paragraph"
       },
       {
-        "content": "Diferente do projeto original, adicionei estados e typescript 🚀",
+        "content": "Lista de tarefas",
         "type": "paragraph"
       },
       {
-        "content": "https://github.com/renan-tsx",
+        "content": "https://to-do-my-ignite-github-renan-tsx.netlify.app",
+        "type": "link"
+      },
+      {
+        "content": "Galeria de filmes",
+        "type": "paragraph"
+      },
+      {
+        "content": "https://watch-me-ignite-github-renan-tsx.netlify.app",
+        "type": "link"
+      },
+      {
+        "content": "Gerenciador de Cardápio",
+        "type": "paragraph"
+      },
+      {
+        "content": "https://go-restauran-ignite-github-renan-tsx.netlify.app",
+        "type": "link"
+      },
+      {
+        "content": "Carrinho de compras",
+        "type": "paragraph"
+      },
+      {
+        "content": "https://rocketshoes-ignite-github-renan-tsx.netlify.app",
         "type": "link"
       }
     ],
     "id": 2,
-    "publishedAt": "2022-21-10 09:00:00"
+    "publishedAt": "2022-10-21 08:00:00"
   }
 ]
