@@ -1,5 +1,6 @@
 import { PencilLine } from 'phosphor-react'
 import bgAsideImg from '../../assets/bg-aside.avif'
+import { Avatar } from '../Avatar'
 import styles from './style.module.css'
 
 export function Sidebar() {
@@ -8,9 +9,10 @@ export function Sidebar() {
       <img className={styles.cover} src={bgAsideImg} />
 
       <div className={styles.profile}>
-        <img className={styles.avatar} src="https://github.com/renan-tsx.png" />
+        <Avatar src="https://github.com/renan-tsx.png" />
+      
         <strong>Renan Moreira</strong>
-        <span>Web Developer</span>
+        <span>Webss Developer</span>
       </div>
 
       <footer>
