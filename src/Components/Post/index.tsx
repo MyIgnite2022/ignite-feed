@@ -2,7 +2,13 @@ import { Avatar } from '../Avatar';
 import { Comment } from '../Comment';
 import styles from './style.module.css';
 
-export function Post() {
+interface PostProps {
+  author: any;
+  content: any;
+  publishedAt: any;
+}
+
+export function Post(props: PostProps) {
   return (
     <article className={styles.post}>
       <header>
