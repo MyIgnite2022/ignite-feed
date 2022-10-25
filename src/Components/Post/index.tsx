@@ -2,16 +2,22 @@ import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { useState } from 'react';
 import { CommentProps, PostsProps } from '../../App';
-import { Avatar } from '../Avatar';
 import { Comment } from '../Comment';
+import { ContentPost } from '../ContentPost/indext';
+import { HeaderPost } from '../HeaderPost';
 import styles from './style.module.css';
 
-type PostProps = Pick<PostsProps, 'author' | 'content' | 'publishedAt' | 'comments'>
-
-export function Post({ author, content, publishedAt, comments }: PostProps) {
-  const [newComments, setNewComments] =  useState<CommentProps[]>([...comments])
+export function Post({ 
+  id,
+  author, 
+  content, 
+  comments,
+  publishedAt }: PostsProps) {
 
   const date = new Date(publishedAt);
+  const [newCommentText, setNewCommentsText] = useState('')
+  const [newComments, setNewComments] =  useState<CommentProps[]>([...comments])
+
   const publishedAtFormatted = format(date, "d 'de' LLLL 'às' HH:mm'h'", {
     locale: ptBR
   });
@@ -21,10 +27,12 @@ export function Post({ author, content, publishedAt, comments }: PostProps) {
     addSuffix: true
   });
 
-  const [newCommentText, setNewCommentsText] = useState('')
-
   function handleCrateNewChange() {
-    setNewCommentsText(event.target.value)
+    setNewCommentsText(event?.target.value)
+  }
+
+  function deleteComment(comment: string) {
+    console.log(comment)
   }
 
   function handleCrateNewComment() {
@@ -34,7 +42,7 @@ export function Post({ author, content, publishedAt, comments }: PostProps) {
       "applause": 4,
       "author": "Renan Moreira",
       "comment": newCommentText,
-      "id": 1,
+      "id": new Date().getTime(),
       "publishedAt": format(new Date(), "yyyy'-'LL'-'dd hh':'mm':'ss")
     }
 
@@ -44,32 +52,17 @@ export function Post({ author, content, publishedAt, comments }: PostProps) {
 
   return (
     <article className={styles.post}>
-      <header>
-        <div className={styles.author}>
-          <Avatar src="https://github.com/renan-tsx.png"/>
-          <div className={styles.authorInfo}>
-            <strong>{author.name}</strong>
-            <span>{author.role}</span>
-          </div>
-        </div>
+      
+      <HeaderPost
+        date={date}
+        author={author}
+        publishedAtFormatted={publishedAtFormatted}
+        publishedDateRelativeToNow={publishedDateRelativeToNow}
+      />
 
-        <time 
-          title={publishedAtFormatted} 
-          dateTime={date.toISOString()}>
-          {publishedDateRelativeToNow}
-        </time>
-      </header>
+      <ContentPost content={content}/>
 
-      <div className={styles.content}>
-        {content.map(line => {
-          if (line.type === 'paragraph') {
-            return <p>{line.content}</p>;
-          } else if (line.type === 'link') {
-            return <p><a href="#">{line.content}</a></p>
-          }
-        })}
-      </div>
-
+      
       <form onSubmit={handleCrateNewComment}  className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
 
@@ -89,12 +82,9 @@ export function Post({ author, content, publishedAt, comments }: PostProps) {
         {newComments.map(comment => {
           return (
             <Comment
-              key={comment.id}
-              publishedAt={comment.publishedAt}
-              author={comment.author}
-              applause={comment.applause} 
-              comment={comment.comment} 
-              id={comment.id}
+              key={comment.comment}
+              content={comment}
+              onDeleteComment={deleteComment}
             />)
         })}
       </div>

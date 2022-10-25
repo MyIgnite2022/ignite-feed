@@ -3,10 +3,22 @@ import styles from './style.module.css';
 import { format, formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { ThumbsUp, Trash } from 'phosphor-react';
-import { CommentProps } from '../../App';
 
-export function Comment({applause, comment, id, author, publishedAt }: CommentProps) {
-  const date = new Date(publishedAt);
+interface CommentProps {
+    content: {
+      id: number;
+      author: string;
+      comment: string;
+      applause: number;
+      publishedAt: string;
+    },
+    onDeleteComment: (comment: string) => void;
+}
+
+export function Comment({ content, onDeleteComment }: CommentProps) {
+
+  const date = new Date(content.publishedAt);
+  
   const publishedAtFormatted = format(date, "d 'de' LLLL 'às' HH:mm'h'", {
     locale: ptBR
   });
@@ -16,6 +28,10 @@ export function Comment({applause, comment, id, author, publishedAt }: CommentPr
     addSuffix: true
   });
 
+  function handleDeleteComment() {
+    onDeleteComment(content.comment)
+  }
+
   return (
     <div className={styles.comment}>
       <img src="https://github.com/renan-tsx.png" alt="" />
@@ -24,7 +40,7 @@ export function Comment({applause, comment, id, author, publishedAt }: CommentPr
         <div className={styles.commentContent}>
           <header>
             <div className={styles.authorAndTime}>
-              <strong>{author}</strong>
+              <strong>{content.author}</strong>
               <time 
                 title={publishedAtFormatted}
                 dateTime={date.toISOString()}>
@@ -32,18 +48,18 @@ export function Comment({applause, comment, id, author, publishedAt }: CommentPr
                 </time>
             </div>
 
-            <button title="Deletar comentário">
+            <button title="Deletar comentário" onClick={handleDeleteComment}>
               <Trash size={24} />
             </button>
           </header>
 
-          <p>{comment}</p>
+          <p>{content.comment}</p>
         </div>
 
         <footer>
           <button>
             <ThumbsUp />
-            Aplaudir <span>20</span>
+            Aplaudir <span>{content.applause}</span>
           </button>
         </footer>
       </div>
