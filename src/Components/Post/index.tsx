@@ -31,8 +31,12 @@ export function Post({
     setNewCommentsText(event?.target.value)
   }
 
-  function deleteComment(comment: string) {
-    console.log(comment)
+  function deleteComment(idtoDelete: number) {
+    const commentsWithoutDeletedOne = newComments.filter(({id}) => {
+      return id !== idtoDelete
+    })
+    
+    setNewComments(commentsWithoutDeletedOne)
   }
 
   function handleCrateNewComment() {
@@ -79,10 +83,10 @@ export function Post({
       </form>
 
       <div className={styles.commentList}>
-        {newComments.map(comment => {
+        {newComments.map((comment, id) => {
           return (
             <Comment
-              key={comment.comment}
+              key={id}
               content={comment}
               onDeleteComment={deleteComment}
             />)

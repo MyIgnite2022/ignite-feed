@@ -12,7 +12,7 @@ interface CommentProps {
       applause: number;
       publishedAt: string;
     },
-    onDeleteComment: (comment: string) => void;
+    onDeleteComment: (id: number) => void;
 }
 
 export function Comment({ content, onDeleteComment }: CommentProps) {
@@ -29,7 +29,7 @@ export function Comment({ content, onDeleteComment }: CommentProps) {
   });
 
   function handleDeleteComment() {
-    onDeleteComment(content.comment)
+    onDeleteComment(content.id)
   }
 
   return (
