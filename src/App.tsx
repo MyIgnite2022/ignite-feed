@@ -9,6 +9,14 @@ export interface ContentProps {
   type: "paragraph" | "link";
 }
 
+export interface CommentProps {
+  publishedAt: string;
+  author: string;
+  applause: number;
+  comment: string;
+  id: number;
+}
+
 export interface PostsProps {
   author: {
     avatarUrl: string;
@@ -18,6 +26,7 @@ export interface PostsProps {
   content: ContentProps[],
   id: number;
   publishedAt: string;
+  comments: CommentProps[]
 }
 
 function App() {
@@ -47,6 +56,7 @@ function App() {
                 author={post.author}
                 content={post.content}
                 publishedAt={post.publishedAt}
+                comments={post.comments}
               />
             )
           })}

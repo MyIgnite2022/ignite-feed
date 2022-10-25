@@ -5,6 +5,15 @@
       "name": "Renan Moreira",
       "role": "Developer"
     },
+    "comments": [
+      {
+        "applause": 5,
+        "author": "Renan Moreira",
+        "comment": "Use os projetos para treinar/implantar o Back-end",
+        "id": 1,
+        "publishedAt": "2022-10-25 09:00:00"
+      }
+    ],
     "content": [
       {
         "content": "Fala galera, segue todos meus repositórios.",
@@ -32,6 +41,15 @@
       "name": "Renan Moreira",
       "role": "Developer"
     },
+    "comments": [
+      {
+        "applause": 3,
+        "author": "Renan Moreira",
+        "comment": "Use os projetos para treinar/implantar o Back-end",
+        "id": 1,
+        "publishedAt": "2022-10-25 09:00:00"
+      }
+    ],
     "content": [
       {
         "content": "Espie outros projetos feitos com React 👋",
