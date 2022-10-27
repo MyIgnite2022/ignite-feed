@@ -18,6 +18,8 @@ export function Post({
   const [newCommentText, setNewCommentsText] = useState('')
   const [newComments, setNewComments] =  useState<CommentProps[]>([...comments])
 
+  const isNewCommentEmpty = newCommentText.length === 0
+
   const publishedAtFormatted = format(date, "d 'de' LLLL 'às' HH:mm'h'", {
     locale: ptBR
   });
@@ -28,7 +30,12 @@ export function Post({
   });
 
   function handleCrateNewChange() {
+    event?.target?.setCustomValidity('')
     setNewCommentsText(event?.target.value)
+  }
+
+  function handleNewCommentInvalid() {
+    event?.target?.setCustomValidity('Esse campo é obrigatório')
   }
 
   function deleteComment(idtoDelete: number) {
@@ -75,10 +82,12 @@ export function Post({
           placeholder="Deixe um comentário"
           value={newCommentText}
           onChange={handleCrateNewChange}
+          onInvalid={handleNewCommentInvalid}
+          required
         />
 
         <footer>
-          <button type="submit">Publicar</button>
+          <button type="submit" disabled={isNewCommentEmpty}>Publicar</button>
         </footer>
       </form>
 
