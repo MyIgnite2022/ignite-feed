@@ -4,6 +4,7 @@ import { format, formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { ThumbsUp, Trash } from 'phosphor-react';
 import { useState } from 'react';
+import { Avatar } from '../Avatar';
 
 interface CommentProps {
     content: {
@@ -37,7 +38,12 @@ export function Comment({ content, onDeleteComment }: CommentProps) {
 
   return (
     <div className={styles.comment}>
-      <img src="https://github.com/renan-tsx.png" alt="" />
+      <Avatar 
+        src="https://github.com/renan-tsx.png" 
+        hasBorder={false}
+        title={content.author}
+        alt={content.author}
+      />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>

@@ -3,31 +3,7 @@ import styles from './App.module.css'
 import { Header } from "./Components/Header"
 import { Post } from './Components/Post'
 import { Sidebar } from './Components/Sidebar'
-
-export interface ContentProps {
-  content: string;
-  type: "paragraph" | "link";
-}
-
-export interface CommentProps {
-  publishedAt: string;
-  author: string;
-  applause: number;
-  comment: string;
-  id: number;
-}
-
-export interface PostsProps {
-  author: {
-    avatarUrl: string;
-    name: string;
-    role: string;
-  },
-  content: ContentProps[],
-  id: number;
-  publishedAt: string;
-  comments: CommentProps[]
-}
+import { PostsProps } from './types'
 
 function App() {
   const [posts, setPosts] = useState<PostsProps[]>([])

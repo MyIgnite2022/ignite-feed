@@ -23,7 +23,12 @@ export function HeaderPost({
   return (
     <header>
       <div className={styles.author}>
-        <Avatar src="https://github.com/renan-tsx.png"/>
+        <Avatar 
+          src="https://github.com/renan-tsx.png" 
+          title={author.name}
+          alt={author.name}
+        />
+
         <div className={styles.authorInfo}>
           <strong>{ author.name}</strong>
           <span>{ author.role}</span>

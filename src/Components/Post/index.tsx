@@ -1,14 +1,13 @@
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import { useState } from 'react';
-import { CommentProps, PostsProps } from '../../App';
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
+import { CommentProps, PostsProps } from '../../types';
 import { Comment } from '../Comment';
 import { ContentPost } from '../ContentPost/indext';
 import { HeaderPost } from '../HeaderPost';
 import styles from './style.module.css';
 
-export function Post({ 
-  id,
+export function Post({
   author, 
   content, 
   comments,
@@ -29,12 +28,12 @@ export function Post({
     addSuffix: true
   });
 
-  function handleCrateNewChange() {
-    event?.target?.setCustomValidity('')
-    setNewCommentsText(event?.target.value)
+  function handleCrateNewChange(event: ChangeEvent<HTMLTextAreaElement>) {
+    event.target.setCustomValidity('')
+    setNewCommentsText(event.target.value)
   }
 
-  function handleNewCommentInvalid() {
+  function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
     event?.target?.setCustomValidity('Esse campo é obrigatório')
   }
 
@@ -46,7 +45,7 @@ export function Post({
     setNewComments(commentsWithoutDeletedOne)
   }
 
-  function handleCrateNewComment() {
+  function handleCrateNewComment(event: FormEvent) {
     event?.preventDefault()
     
     const newComment = {
@@ -73,7 +72,6 @@ export function Post({
 
       <ContentPost content={content}/>
 
-      
       <form onSubmit={handleCrateNewComment}  className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
 

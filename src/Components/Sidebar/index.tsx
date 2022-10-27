@@ -9,10 +9,14 @@ export function Sidebar() {
       <img className={styles.cover} src={bgAsideImg} />
 
       <div className={styles.profile}>
-        <Avatar src="https://github.com/renan-tsx.png" />
+      <Avatar 
+        src="https://github.com/renan-tsx.png" 
+        title={'Renan Moreira'}
+        alt={'Renan Moreira'}
+      />
       
         <strong>Renan Moreira</strong>
-        <span>Webss Developer</span>
+        <span>Web Developer</span>
       </div>
 
       <footer>
