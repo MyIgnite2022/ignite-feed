@@ -5,15 +5,7 @@
       "name": "Renan Moreira",
       "role": "Developer"
     },
-    "comments": [
-      {
-        "applause": 5,
-        "author": "Renan Moreira",
-        "comment": "Use os projetos para treinar/implantar o Back-end",
-        "id": 1666731539745,
-        "publishedAt": "2022-10-25 09:00:00"
-      }
-    ],
+    "comments": [],
     "content": [
       {
         "content": "Fala galera, segue todos meus repositórios.",
@@ -21,6 +13,10 @@
       },
       {
         "content": "Não se esqueça de entrar nas organizações.",
+        "type": "paragraph"
+      },
+      {
+        "content": "Use os projetos para implantar/treinar desenvolvimento back-end.",
         "type": "paragraph"
       },
       {
@@ -41,15 +37,7 @@
       "name": "Renan Moreira",
       "role": "Developer"
     },
-    "comments": [
-      {
-        "applause": 3,
-        "author": "Renan Moreira",
-        "comment": "Use os projetos para treinar/implantar o Back-end",
-        "id": 1666731555833,
-        "publishedAt": "2022-10-25 09:00:00"
-      }
-    ],
+    "comments": [],
     "content": [
       {
         "content": "Espie outros projetos feitos com React 👋",
