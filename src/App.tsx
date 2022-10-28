@@ -3,6 +3,7 @@ import styles from './App.module.css'
 import { Header } from "./Components/Header"
 import { Post } from './Components/Post'
 import { Sidebar } from './Components/Sidebar'
+import { api } from './services/api'
 import { PostsProps } from './types'
 
 function App() {
@@ -10,9 +11,13 @@ function App() {
 
   useEffect(() => {
     const getPosts = async () => {
-      await fetch('https://my-json-server.typicode.com/MyIgnite2022/ignite-feed')
-        .then(response => response.json())
-        .then((json) => setPosts(json))
+      const res = await api.get('/posts')
+      console.log(res)
+      // setPosts(res)
+
+      // await fetch('https://my-json-server.typicode.com/MyIgnite2022/ignite-feed')
+      //   .then(response => response.json())
+      //   .then((json) => setPosts(json))
     }
 
     getPosts()
