@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     const getPosts = async () => {
-      await fetch('./db.JSON')
+      await fetch('https://my-json-server.typicode.com/MyIgnite2022/ignite-feed')
         .then(response => response.json())
         .then((json) => setPosts(json))
     }
