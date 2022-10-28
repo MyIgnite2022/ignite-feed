@@ -1,4 +1,5 @@
-import { ContentProps } from '../../App';
+
+import { ContentProps } from '../../types';
 import styles from './style.module.css';
 
 interface ContentPostProps {
